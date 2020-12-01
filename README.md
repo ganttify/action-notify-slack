@@ -14,6 +14,7 @@ steps:
     with:
       status: ${{ job.status }}
       notify_when: 'failure' # default is 'success,failure,warnings'
+      title: Custom title for your notification
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
 ```
