@@ -13,10 +13,6 @@ inputs:
     description: Slack notification title
     required: false
     default: CI notification triggered
-  body:
-    description: Slack notification body
-    required: false
-    default: The CI pipeline has failed
 
 branding:
   icon: send
