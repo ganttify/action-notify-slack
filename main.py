@@ -65,7 +65,7 @@ def notify_slack(job_status, notify_when, title):
                 'icon_emoji': ':robot_face:',
                 'username': 'CI reporting bot',
                 'text': message,
-                'fallback': 'New Github Action Run',
+                'fallback': title,
                 'pretext': title,
                 'color': color,
                 'mrkdwn_in': ['text', 'title'],
