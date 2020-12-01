@@ -9,6 +9,14 @@ inputs:
     description: Specify on which events a slack notification is sent
     required: false
     default: 'success,failure,warnings'
+  title:
+    description: Slack notification title
+    required: false
+    default: CI notification triggered
+  body:
+    description: Slack notification body
+    required: false
+    default: The CI pipeline has failed
 
 branding:
   icon: send
