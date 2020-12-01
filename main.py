@@ -60,10 +60,10 @@ def notify_slack(job_status, notify_when, title):
     message = f'{emoji} {workflow} {status_message} in <{repo_url}|{repo}@{branch}> on <{commit_url}|{commit[:7]}>.'
 
     payload = {
+        'icon_emoji': ':robot_face:',
+        'username': 'CI reporting',
         'attachments': [
             {
-                'icon_emoji': ':robot_face:',
-                'username': 'CI reporting bot',
                 'text': message,
                 'fallback': title,
                 'pretext': title,
