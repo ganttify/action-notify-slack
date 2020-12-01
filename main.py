@@ -43,7 +43,7 @@ def actionEmoji(status):
     return ':zipper_mouth_face:'
 
 
-def notify_slack(job_status, notify_when):
+def notify_slack(job_status, notify_when, title):
     url = os.getenv('SLACK_WEBHOOK_URL')
     workflow = os.getenv('GITHUB_WORKFLOW')
     repo = os.getenv('GITHUB_REPOSITORY')
@@ -62,12 +62,13 @@ def notify_slack(job_status, notify_when):
     payload = {
         'attachments': [
             {
+                'icon_emoji': ':robot_face:',
+                'username': 'CI reporting bot',
                 'text': message,
                 'fallback': 'New Github Action Run',
-                'pretext': 'New Github Action Run',
+                'pretext': title,
                 'color': color,
-                'mrkdwn_in': ['text'],
-                'footer': 'Developed by <https://www.ravsam.in|RavSam>',
+                'mrkdwn_in': ['text', 'title'],
             }
         ]
     }
@@ -86,7 +87,8 @@ def notify_slack(job_status, notify_when):
 def main():
     job_status = os.getenv('INPUT_STATUS')
     notify_when = os.getenv('INPUT_NOTIFY_WHEN')
-    notify_slack(job_status, notify_when)
+    title = os.getenv('INPUT_TITLE')
+    notify_slack(job_status, notify_when, title)
 
 
 if __name__ == '__main__':
